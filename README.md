@@ -1,28 +1,39 @@
-# VirtualDesk
+# Virtual Desk
+Un projet visant à créer un **environnement de travail en VR** pour toute personne cherchant une **productivité maximale**.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0.
+[Virtual Desk App](https://virtual-desk-dc535.web.app/)
 
-## Development server
+## Technologie
+* [Angular](https://angular.io/)
+* [A-Frame](https://aframe.io/)
+* [WebRTC](https://webrtc.org/)
+* [Firebase](https://firebase.google.com/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Sources
+* [Tutoriel sur la mise en place d'un flux WebRTC](https://www.grafikart.fr/tutoriels/webrtc-864)
+* [Modèles 3D pour l'environnement](https://poly.google.com/)
+* [Component A-Frame pour la modification de l'environnement](https://github.com/supermedium/aframe-environment-component)
+* [Component A-Frame pour controler n'importe quel controller VR](https://github.com/wmurphyrd/aframe-super-hands-component)
 
-## Code scaffolding
+## Concept
+Dans un premier temps j'ai initialisé un projet *Angular* sous sa version 9.00beta.v-0.2 pour avoir la capacité de build du nouveau compiler *Ivy*.
+J'ai donc entamé l'importation de A-Frame et des différents components dont j'avais besoin.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Problème n°1 - Importation des différents components
+Certains des components n'ont pas étés mis à jour depuis la sortie de la V1 de A-Frame.
+Depuis la V1, l'initialisation de A-Frame ne se fait qu'après l'initialisation du DOM, ce qui fait que certains components ne pouvaient être importaient directement à la chaine. C'est pourquoi j'ai du utilisé la librairie [Fetch Inject](https://github.com/englishextra/fetch-inject/), cette librairie m'a permis d'injecter les components une fois A-Frame intialisé dans la class Window.
 
-## Build
+Une fois ce problème reglé j'ai pu m'attelé à la réalisation d'une pièce pour échanger les données du PC vers la pièce VR.
+Pour cela j'ai donc établi une conenxion WebRTC entre le device VR et le PC via un *échange d'offre et de réponses via une communication en temps réel avec Firestore*. **(voir tutoriel WebRTC)**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+A partir de là j'ai donc un environnement avec un flux vidéo du PC dans l'environnement VR.
+J'ai donc aussi rajouter la possiblité de gérer un son relaxant en 360°.
 
-## Running unit tests
+## Suite du projet
+Malheureusement je n'ai pas pu terminer ce projet dans les temps (ce qui est normal en faite).
+Mais je le continue dans l'optique de le proposer gratuitement à la communautée.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-"# virtual-desk" 
+Voici une liste non-hexaustive des choses à faire encore dans ce projet :
+* Etablir une connexion RDP dans WebRTC pour prendre le control du PC avec le controller VR
+* Rendre possible le partage de pièce via un lien
+* Ajouter un layout spherique pour la disposition des différents éléments ajoutable dans l'environnement
