@@ -2,6 +2,8 @@
 Un projet visant à créer un **environnement de travail en VR** pour toute personne cherchant une **productivité maximale**.
 
 [Virtual Desk App](https://virtual-desk-dc535.web.app/)
+![Demo Virtual Desk App](https://firebasestorage.googleapis.com/v0/b/virtual-desk-dc535.appspot.com/o/Virtual%20Desk%20PC.png?alt=media&token=94e87c1c-ab05-40cd-91c2-30d19ec3d8f4)
+[Vidéo de démonstration](https://www.youtube.com/watch?v=7k0PvTGZUdE)
 
 ## Technologie
 * [Angular](https://angular.io/)
